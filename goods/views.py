@@ -1,18 +1,18 @@
-from django.shortcuts import HttpResponse
-import datetime
+from django.shortcuts import render
+from goods.models import Product
 
 
-def hello_view(request):
-    if request.method == "GET":
-        return HttpResponse("Hello! It's my project))")
+def main_view(request):
+    if request.method == 'GET':
+        return render(request, 'layouts/index.html')
 
 
-def now_date_view(request):
-    current_date = datetime.date.today()
-    if request.method == "GET":
-        return HttpResponse(f"Today is {current_date}")
+def products_view(request):
+    if request.method == 'GET':
+        products = Product.objects.all()
 
+        context_data = {
+            'products': products
+        }
 
-def goodbye_view(request):
-    if request.method == "GET":
-        return HttpResponse("Goodbye user!))")
+        return render(request, 'products/products.html', context=context_data)
