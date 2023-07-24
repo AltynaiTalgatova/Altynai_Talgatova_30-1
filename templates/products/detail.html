@@ -1,0 +1,35 @@
+{% extends 'layouts/index.html' %}
+
+{% block content %}
+    <style type="text/css">
+        .post {
+            width: 80%;
+            margin-left: 10%;
+            padding: 10px;
+        }
+        .image > img {
+            width: 100%;
+        }
+        .dates {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <div class="product">
+        <div class="image">
+            <img style="width:200px;" src="/media/{{ product.image }}/" alt="">
+        </div>
+        <div class="info">
+            <h1>{{ product.title }} Price: {{ product.price }} Discount: {{ product.discount }}</h1>
+            <h4>Description: {{ product.description }}</h4>
+            <h4>Quantity: {{ product.quantity }}</h4>
+            <h4>Size: {{ product.size }}</h4>
+            <h4>Weight: {{ product.weight }}</h4>
+            <h4>Rate: {{ product.rate }}</h4>
+            <div class="dates">
+                <h4>{{ product.created_date }}</h4>
+                <h4>{{ product.modified_date }}</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
