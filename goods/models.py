@@ -13,7 +13,7 @@ class Product(models.Model):
     price = models.FloatField()
     discount = models.FloatField(blank=True, null=True)
     quantity = models.IntegerField()
-    size = models.CharField(max_length=15)
+    size = models.CharField(max_length=150)
     weight = models.FloatField(blank=True, null=True)
     rate = models.FloatField()
     created_date = models.DateTimeField(auto_now_add=True)
