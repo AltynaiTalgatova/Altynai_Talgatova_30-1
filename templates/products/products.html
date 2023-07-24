@@ -7,6 +7,7 @@
             justify-content: space-between;
             width: 80%;
             margin-left: 10%;
+            padding: 10px;
             flex-wrap: wrap;
         }
     </style>
@@ -16,6 +17,9 @@
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ product.title }}</h5>
+                    {% for category in product.categories.all %}
+                        <p>{{ category.title }}</p>
+                    {% endfor %}
                     <a href="#" class="btn btn-primary">More</a>
                 </div>
             </div>

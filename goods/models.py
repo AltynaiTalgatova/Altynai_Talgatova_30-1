@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=128)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+
 class Product(models.Model):
     title = models.CharField(max_length=150)
     image = models.ImageField(blank=True, null=True)
@@ -13,3 +18,6 @@ class Product(models.Model):
     rate = models.FloatField()
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+
+    """categories"""
+    categories = models.ForeignKey(Category, on_delete=models.CASCADE)
