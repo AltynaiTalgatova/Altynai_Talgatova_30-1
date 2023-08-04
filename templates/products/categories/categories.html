@@ -1,20 +1,19 @@
 {% extends 'layouts/index.html' %}
 
-{% block conntent %}
+{% block content %}
 
     <style type="text/css">
         .categories {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            flex-direction: column;
             width: 70%;
-            margin-left: 15%;
+            margin-left: 20%;
         }
     </style>
 
     <div class="categories">
         {% for category in categories %}
-            <a href="/products/">
+            <a href="/products">
                 <h4>{{ category.title }}</h4>
             </a>
         {% endfor %}

@@ -3,7 +3,7 @@
 {% block content %}
     <style type="text/css">
         .products {
-            display:flex;
+            display: flex;
             justify-content: space-between;
             width: 80%;
             margin-left: 10%;
@@ -11,6 +11,12 @@
             flex-wrap: wrap;
         }
     </style>
+    <div class="search">
+        <form action="/products/" method="get">
+            <input type="text" name="search">
+            <input type="submit" name="Search">
+        </form>
+    </div>
     <div class="products">
         {% for product in products %}
             <div class="card" style="width: 18rem;">
@@ -21,9 +27,16 @@
                     {% for category in product.categories.all %}
                         <p>{{ category.title }}</p>
                     {% endfor %}
-                    <a href="/products/{{ product.id }}" class="btn btn-primary">More</a>
+                    <a href="/products/{{ product.id }}/" class="btn btn-primary">More</a>
                 </div>
             </div>
+        {% endfor %}
+    </div>
+    <div class="pages">
+        {% for page in pages %}
+            <a href="/products/?pages={{ page }}">
+                <button>{{ page }}</button>
+            </a>
         {% endfor %}
     </div>
 {% endblock %}
